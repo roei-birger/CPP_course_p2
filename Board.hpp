@@ -9,27 +9,19 @@ namespace ariel
 {
     class Board
     {
-    private:
-        /* data */
-        std::vector<int> v;
+        std::vector<std::vector<char>> v;
+        unsigned int maxCol;
+        unsigned int maxRow;
+
     public:
         Board();
 
-        void post(unsigned int row, int column, Direction direction, std::string message);
+        void post(unsigned int row,unsigned int column, Direction direction, std::string message);
 
-        std::string read(unsigned int row, unsigned int column, Direction direction,unsigned int length);
+        std::string read(unsigned int row, unsigned int column, Direction direction, unsigned int length);
 
         void show();
 
-        ~Board(){}
+        ~Board() {}
     };
-
-    // Board::Board(/* args */)
-    // {
-    // }
-
-    // Board::~Board()
-    // {
-    // }
-
 }
