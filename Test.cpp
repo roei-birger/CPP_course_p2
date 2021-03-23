@@ -81,7 +81,7 @@ TEST_CASE("read after post - Vertical")
     CHECK(testBoard.read(0, 0, Direction::Vertical, 2) == string("po"));
     CHECK(testBoard.read(0, 0, Direction::Vertical, 3) == string("pos"));
     CHECK(testBoard.read(0, 0, Direction::Vertical, 4) == string("post"));
-    CHECK(testBoard.read(0, 0, Direction::Vertical, 5) == string("posr_"));
+    CHECK(testBoard.read(0, 0, Direction::Vertical, 5) == string("post_"));
     CHECK(testBoard.read(0, 10, Direction::Vertical, 2) == string("ro"));
     CHECK(testBoard.read(10, 0, Direction::Vertical, 4) == string("roei"));
 }
@@ -100,7 +100,7 @@ TEST_CASE("post capital letter & other symbols - Vertical")
     CHECK_NOTHROW(testBoard.post(0, 0, Direction::Vertical, "P$ST")); //
     CHECK_NOTHROW(testBoard.post(0, 0, Direction::Vertical, "P$ST")); //no need to change
     CHECK_NOTHROW(testBoard.post(0, 10, Direction::Vertical, "ROE!"));
-    CHECK_NOTHROW(testBoard.post(10, 0, Direction::Vertical, "ROE!"));
+    CHECK_NOTHROW(testBoard.post(6, 3, Direction::Vertical, "ROE!"));
 }
 
 TEST_CASE("read capital letter & other symbols - Vertical")
@@ -112,5 +112,6 @@ TEST_CASE("read capital letter & other symbols - Vertical")
     CHECK(testBoard.read(0, 0, Direction::Vertical, 4) == string("P$ST"));
     CHECK(testBoard.read(0, 0, Direction::Vertical, 5) == string("P$ST_"));
     CHECK(testBoard.read(0, 10, Direction::Vertical, 2) == string("RO"));
-    CHECK(testBoard.read(10, 0, Direction::Vertical, 4) == string("ROE!"));
+    CHECK(testBoard.read(6, 3, Direction::Vertical, 4) == string("ROE!"));
+    testBoard.show();
 }
